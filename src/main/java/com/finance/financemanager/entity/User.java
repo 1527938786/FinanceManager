@@ -12,8 +12,8 @@ public class User {
     @Id
     private String id;
 
-    @Column(name = "user_name")
-    private String userName;
+    @Column(name = "user_account")
+    private String userAccount;
 
     @Column(name = "user_pass")
     private String userPass;

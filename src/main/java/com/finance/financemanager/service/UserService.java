@@ -5,6 +5,7 @@ import com.finance.financemanager.common.BaseService;
 import com.finance.financemanager.entity.User;
 import com.finance.financemanager.mapper.UserMapper;
 import com.finance.financemanager.utils.MD5Utils;
+import com.finance.financemanager.utils.UUIDUtils;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -20,6 +21,7 @@ public class UserService extends BaseService<UserMapper, User> {
     }
 
     public User register(User user) {
+        user.setId(UUIDUtils.getSnowflakeId());
         user.setUserPass(MD5Utils.MD5(user.getUserPass()));
         this.mapper.insertSelective(user);
         user.setUserPass(null);
