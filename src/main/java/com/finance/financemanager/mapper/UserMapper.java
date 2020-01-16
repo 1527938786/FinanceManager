@@ -1,9 +1,8 @@
 package com.finance.financemanager.mapper;
 
+import com.finance.financemanager.common.CommonMapper;
 import com.finance.financemanager.entity.User;
-import tk.mybatis.mapper.common.Mapper;
-import tk.mybatis.mapper.common.example.SelectByExampleMapper;
 
-public interface UserMapper extends Mapper<User>, SelectByExampleMapper<User> {
+public interface UserMapper extends CommonMapper<User> {
 }
 
