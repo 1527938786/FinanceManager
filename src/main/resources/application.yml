@@ -1,0 +1,32 @@
+TIMEZONE: Asia/Shanghai
+MYSQL_HOST: localhost
+MYSQL_PORT: 3306
+DB_USER: root
+DB_PASSWORD: 123456
+
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 123456
+    url: jdbc:mysql://${MYSQL_HOST}:${MYSQL_PORT}/finance_manager?useUnicode=true&characterEncoding=UTF8&useSSL=false&serverTimezone=${TIMEZONE}
+    # 使用druid数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    default-property-inclusion: non_null
+
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+
+logging:
+  level:
+    com:
+      finance:
+        financemanager:
+          mapper: DEBUG
+
