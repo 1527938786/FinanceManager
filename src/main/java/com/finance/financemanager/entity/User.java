@@ -14,4 +14,15 @@ public class User {
 
     @Column(name = "user_name")
     private String userName;
+
+    @Column(name = "user_pass")
+    private String userPass;
+
+    private String phone;
+
+    private Integer type;
+
+    private Integer sex;
+
+    private String addr;
 }

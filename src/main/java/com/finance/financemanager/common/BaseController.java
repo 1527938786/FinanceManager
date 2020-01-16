@@ -11,34 +11,34 @@ import java.util.List;
 public class BaseController<S extends BaseService, E> {
 
     @Autowired
-    private S s;
+    protected S service;
 
     @GetMapping
     private Api<E> selectList() {
-        List<E> list = s.selectAll();
+        List<E> list = service.selectAll();
         return Api.ok(list);
     }
 
     @GetMapping("/{id}")
     public Api<E> selectById(@PathVariable Object id) {
-        return Api.ok(s.selectByPrimaryKey(id));
+        return Api.ok(service.selectByPrimaryKey(id));
     }
 
     @PostMapping
     public Api<E> create(@RequestBody E e) {
-        return Api.ok(s.insert(e));
+        return Api.ok(service.insert(e));
     }
 
     @PutMapping("/{id}")
     public Api<E> updateById(@PathVariable Object id, @RequestBody E e) {
-        s.updateByPrimaryKeySelective(e);
+        service.updateByPrimaryKeySelective(e);
         return Api.ok(e);
     }
 
 
     @DeleteMapping("/{id}")
     public Api<E> updateById(@PathVariable Object id) {
-        s.delete(id);
+        service.delete(id);
         return Api.ok();
     }
 }

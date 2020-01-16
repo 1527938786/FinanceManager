@@ -8,7 +8,7 @@ import java.util.List;
 
 public abstract class BaseService<M extends CommonMapper<E>, E> {
     @Autowired
-    private M mapper;
+    protected M mapper;
 
     public List<E> selectAll() {
         return mapper.selectAll();
